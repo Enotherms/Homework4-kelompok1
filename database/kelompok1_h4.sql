@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2023 at 07:10 AM
+-- Generation Time: Sep 14, 2023 at 07:52 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `customers` (
   `id` int(11) NOT NULL,
+  `password` varchar(150) NOT NULL,
   `no_ktp` varchar(20) NOT NULL,
   `no_acc` varchar(20) NOT NULL,
   `fullname` varchar(100) NOT NULL,
@@ -38,6 +39,14 @@ CREATE TABLE `customers` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `updated_by` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`id`, `password`, `no_ktp`, `no_acc`, `fullname`, `balance`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(1, '1234', '291002', '1', 'abiyyu', 10000000, '2023-09-14 05:51:16', NULL, NULL, NULL),
+(2, '1234', '1234', '2', 'Charish', 20000000, '2023-09-14 05:51:27', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -51,18 +60,6 @@ CREATE TABLE `transactions` (
   `to_acc` varchar(20) NOT NULL,
   `amount` bigint(20) NOT NULL,
   `transaction_date` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `user_id` varchar(20) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -84,13 +81,6 @@ ALTER TABLE `transactions`
   ADD PRIMARY KEY (`transaction_id`);
 
 --
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -98,7 +88,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `transactions`
