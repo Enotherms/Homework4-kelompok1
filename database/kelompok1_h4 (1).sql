@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2023 at 07:52 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Waktu pembuatan: 16 Sep 2023 pada 02.05
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customers`
+-- Struktur dari tabel `customers`
 --
 
 CREATE TABLE `customers` (
@@ -41,17 +41,18 @@ CREATE TABLE `customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `customers`
+-- Dumping data untuk tabel `customers`
 --
 
 INSERT INTO `customers` (`id`, `password`, `no_ktp`, `no_acc`, `fullname`, `balance`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(1, '1234', '291002', '1', 'abiyyu', 10000000, '2023-09-14 05:51:16', NULL, NULL, NULL),
-(2, '1234', '1234', '2', 'Charish', 20000000, '2023-09-14 05:51:27', NULL, NULL, NULL);
+(1, '1234', '291002', '1', 'abiyyu', 10100000, '2023-09-15 23:57:54', NULL, NULL, NULL),
+(2, '1234', '1234', '2', 'Charish', 20000000, '2023-09-14 05:51:27', NULL, NULL, NULL),
+(3, '1234', '620702', '3', 'Apriyani Penisa', 100000, '2023-09-15 23:57:54', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transactions`
+-- Struktur dari tabel `transactions`
 --
 
 CREATE TABLE `transactions` (
@@ -63,11 +64,18 @@ CREATE TABLE `transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data untuk tabel `transactions`
+--
+
+INSERT INTO `transactions` (`transaction_id`, `from_acc`, `to_acc`, `amount`, `transaction_date`) VALUES
+(7, 'Apriyani Penisa', 'Abiyyu', 100000, '2023-09-15 23:57:54');
+
+--
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `customers`
+-- Indeks untuk tabel `customers`
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`),
@@ -75,26 +83,26 @@ ALTER TABLE `customers`
   ADD UNIQUE KEY `no_acc` (`no_acc`);
 
 --
--- Indexes for table `transactions`
+-- Indeks untuk tabel `transactions`
 --
 ALTER TABLE `transactions`
   ADD PRIMARY KEY (`transaction_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `customers`
+-- AUTO_INCREMENT untuk tabel `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `transactions`
+-- AUTO_INCREMENT untuk tabel `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
