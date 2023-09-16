@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $toAccount = $requestData["to_acc"];
         $amount = floatval($requestData["amount"]);
 
-        // Query SQL untuk mengambil saldo pengirim berdasarkan nomor akun
+        // Query SQL untuk mengambil saldo pengirim berdasarkan nama akun
         $sql = "SELECT balance FROM customers WHERE fullname = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $fromAccount);
