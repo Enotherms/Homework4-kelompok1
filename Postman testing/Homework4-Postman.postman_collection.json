@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "1059861c-4cd9-4ffb-9635-2d58e56f42ac",
+		"name": "Homework4-Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Menampilkan Saldo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/homework4/balance.php?id&password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"homework4",
+						"balance.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": null
+						},
+						{
+							"key": "password",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transfer Saldo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"from_acc\": \"Apriyani Penisa\",\r\n  \"to_acc\": \"Abiyyu\",\r\n  \"amount\": 50000\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost/homework4/transfer.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"homework4",
+						"transfer.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lihat Transaksi",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/homework4/transactions.php?account_name=Abiyyu&password=1234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"homework4",
+						"transactions.php"
+					],
+					"query": [
+						{
+							"key": "account_name",
+							"value": "Abiyyu"
+						},
+						{
+							"key": "password",
+							"value": "1234"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
