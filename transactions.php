@@ -45,4 +45,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 }
 
 $conn->close();
+
 ?>
