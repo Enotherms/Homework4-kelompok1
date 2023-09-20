@@ -1,0 +1,20 @@
+<?php
+
+// Simulasi data transaksi
+$transactions = [
+    ["id" => 1, "no_acc" => "123456", "amount" => 100, "timestamp" => "2023-09-19T10:00:00"],
+    
+    // Data transaksi lainnya...
+];
+
+// Mendapatkan ID akun dari parameter URL
+$no_acc = $_GET['no_acc'];
+
+// Mencari transaksi yang terkait dengan akun tersebut
+$account_transactions = array_filter($transactions, function ($transaction) use (no_acc) {
+    return $transaction['no_acc'] == $no_acc;
+});
+
+$response = ['transactions' => array_values($account_transactions)];
+echo json_encode($response);
+?>
